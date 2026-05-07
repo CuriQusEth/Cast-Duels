@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-slate-50 antialiased overflow-hidden select-none touch-none;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom glow animations for spells */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)); }
+  50% { opacity: 0.8; filter: drop-shadow(0 0 20px rgba(0, 255, 255, 1)); }
+}
+
+.glow-effect {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
