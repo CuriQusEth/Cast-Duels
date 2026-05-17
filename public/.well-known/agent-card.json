@@ -1,0 +1,76 @@
+{
+  "name": "Cast Spell Wizard Duels Agent",
+  "description": "High-performance AI Agent specialized in spell casting mechanics, real-time duel automation, competitive optimization and ecosystem coordination on Base.",
+  "version": "1.0.0",
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "image": "",
+  "owner": "0xYourOwnerAddressHere",
+  "agentWallet": "0xYourAgentWalletHere",
+  "active": true,
+  "skills": [
+    {
+      "id": "spell-casting",
+      "name": "Spell Casting",
+      "description": "Real-time spell mechanics, combo optimization and competitive duel management."
+    },
+    {
+      "id": "multi-duel-orchestration",
+      "name": "Multi-Duel Orchestration",
+      "description": "Manage and synchronize multiple duel instances simultaneously."
+    },
+    {
+      "id": "combat-optimization",
+      "name": "Combat Optimization",
+      "description": "Analyze and optimize combat performance, timing and strategy in real-time."
+    },
+    {
+      "id": "counter-spelling",
+      "name": "Counter Spelling",
+      "description": "Predict and interrupt opponent spells based on elemental logic."
+    },
+    {
+      "id": "arcane-surge",
+      "name": "Arcane Surge Management",
+      "description": "Build and unleash combo meters for powerful ultimate spells."
+    },
+    {
+      "id": "arena-hazards",
+      "name": "Arena Hazard Control",
+      "description": "Use environmental factors to strategic advantage during duels."
+    }
+  ],
+  "services": [
+    {
+      "name": "A2A",
+      "version": "1.0.0",
+      "endpoint": "/.well-known/agent-card.json"
+    },
+    {
+      "name": "MCP",
+      "version": "1.0.0",
+      "endpoint": "/api/mcp"
+    },
+    {
+      "name": "API",
+      "version": "1.0.0",
+      "endpoint": "/api/agent"
+    }
+  ],
+  "capabilities": [
+    "spell-casting",
+    "real-time-automation",
+    "multi-duel-management",
+    "combat-optimization",
+    "competitive-orchestration",
+    "ecosystem-coordination"
+  ],
+  "supportedChains": ["eip155:8453"],
+  "x402Support": false,
+  "registrations": [
+    {
+      "agentId": null,
+      "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432"
+    }
+  ],
+  "supportedTrust": ["reputation"]
+}
