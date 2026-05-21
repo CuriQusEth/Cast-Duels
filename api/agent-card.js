@@ -1,0 +1,78 @@
+export default function handler(req, res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  res.setHeader("Content-Type", "application/json");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  res.status(200).json({
+    "name": "Cast Spell Wizard Duels Agent",
+    "description": "High-performance AI Agent specialized in warp racing mechanics, real-time automation, multi-track management, competitive optimization and ecosystem coordination on Base.",
+    "version": "1.0.0",
+    "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+    "image": "",
+    "owner": "0x0000000000000000000000000000000000000000",
+    "agentWallet": "0x0000000000000000000000000000000000000000",
+    "active": true,
+    "skills": [
+      {
+        "id": "warp-racing",
+        "name": "Warp Racing",
+        "description": "Real-time warp racing mechanics, speed optimization and competitive track management."
+      },
+      {
+        "id": "multi-track-orchestration",
+        "name": "Multi-Track Orchestration",
+        "description": "Manage and synchronize multiple racing instances and tracks simultaneously."
+      },
+      {
+        "id": "performance-optimization",
+        "name": "Performance Optimization",
+        "description": "Analyze and optimize racing performance, timing and strategy in real-time."
+      },
+      {
+        "id": "spell-casting",
+        "name": "Spell Casting",
+        "description": "Real-time spell mechanics, combo optimization and competitive duel management."
+      }
+    ],
+    "services": [
+      {
+        "name": "A2A",
+        "version": "1.0.0",
+        "endpoint": "https://" + (req.headers.host || "") + "/.well-known/agent-card.json"
+      },
+      {
+        "name": "MCP",
+        "version": "1.0.0",
+        "endpoint": "https://" + (req.headers.host || "") + "/api/mcp"
+      },
+      {
+        "name": "API",
+        "version": "1.0.0",
+        "endpoint": "https://" + (req.headers.host || "") + "/api/agent"
+      }
+    ],
+    "capabilities": [
+      "warp-racing",
+      "real-time-automation",
+      "multi-track-management",
+      "speed-optimization",
+      "competitive-orchestration",
+      "ecosystem-coordination",
+      "spell-casting"
+    ],
+    "supportedChains": ["eip155:8453"],
+    "x402Support": false,
+    "registrations": [
+      {
+        "agentId": null,
+        "agentRegistry": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432"
+      }
+    ],
+    "supportedTrust": ["reputation"]
+  });
+}

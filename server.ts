@@ -72,8 +72,13 @@ async function startServer() {
   });
 
   // Vercel deployment fallback for .well-known
-  app.get("/.well-known/agent-card.json", (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'public/.well-known/agent-card.json'));
+  app.get("/.well-known/agent-card.json", async (req, res) => {
+    try {
+      const handler = await import("./api/agent-card.js");
+      handler.default(req, res);
+    } catch(e) {
+      res.sendFile(path.join(process.cwd(), 'public/.well-known/agent-card.json'));
+    }
   });
 
   // Vite middleware for development

@@ -1,49 +1,39 @@
 {
   "name": "Cast Spell Wizard Duels Agent",
-  "description": "High-performance AI Agent specialized in spell casting mechanics, real-time duel automation, competitive optimization and ecosystem coordination on Base.",
+  "description": "High-performance AI Agent specialized in warp racing mechanics, real-time automation, multi-track management, competitive optimization and ecosystem coordination on Base.",
   "version": "1.0.0",
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "image": "",
-  "owner": "0xYourOwnerAddressHere",
-  "agentWallet": "0xYourAgentWalletHere",
+  "owner": "0x0000000000000000000000000000000000000000",
+  "agentWallet": "0x0000000000000000000000000000000000000000",
   "active": true,
   "skills": [
+    {
+      "id": "warp-racing",
+      "name": "Warp Racing",
+      "description": "Real-time warp racing mechanics, speed optimization and competitive track management."
+    },
+    {
+      "id": "multi-track-orchestration",
+      "name": "Multi-Track Orchestration",
+      "description": "Manage and synchronize multiple racing instances and tracks simultaneously."
+    },
+    {
+      "id": "performance-optimization",
+      "name": "Performance Optimization",
+      "description": "Analyze and optimize racing performance, timing and strategy in real-time."
+    },
     {
       "id": "spell-casting",
       "name": "Spell Casting",
       "description": "Real-time spell mechanics, combo optimization and competitive duel management."
-    },
-    {
-      "id": "multi-duel-orchestration",
-      "name": "Multi-Duel Orchestration",
-      "description": "Manage and synchronize multiple duel instances simultaneously."
-    },
-    {
-      "id": "combat-optimization",
-      "name": "Combat Optimization",
-      "description": "Analyze and optimize combat performance, timing and strategy in real-time."
-    },
-    {
-      "id": "counter-spelling",
-      "name": "Counter Spelling",
-      "description": "Predict and interrupt opponent spells based on elemental logic."
-    },
-    {
-      "id": "arcane-surge",
-      "name": "Arcane Surge Management",
-      "description": "Build and unleash combo meters for powerful ultimate spells."
-    },
-    {
-      "id": "arena-hazards",
-      "name": "Arena Hazard Control",
-      "description": "Use environmental factors to strategic advantage during duels."
     }
   ],
   "services": [
     {
       "name": "A2A",
       "version": "1.0.0",
-      "endpoint": "/.well-known/agent-card.json"
+      "endpoint": ".well-known/agent-card.json"
     },
     {
       "name": "MCP",
@@ -57,12 +47,13 @@
     }
   ],
   "capabilities": [
-    "spell-casting",
+    "warp-racing",
     "real-time-automation",
-    "multi-duel-management",
-    "combat-optimization",
+    "multi-track-management",
+    "speed-optimization",
     "competitive-orchestration",
-    "ecosystem-coordination"
+    "ecosystem-coordination",
+    "spell-casting"
   ],
   "supportedChains": ["eip155:8453"],
   "x402Support": false,
