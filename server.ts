@@ -16,52 +16,14 @@ async function startServer() {
   });
 
   // Serve MCP endpoint
-  app.get("/api/mcp", (req, res) => {
-    res.json({
-      tools: [
-        {
-          name: "castSpell",
-          description: "Casts a spell combination in the arena",
-          inputSchema: {
-            type: "object",
-            properties: {
-              elements: { 
-                type: "array", 
-                items: { type: "string" } 
-              }
-            }
-          }
-        },
-        {
-          name: "queryStats",
-          description: "Gets the current wizard duelist rating",
-          inputSchema: {
-            type: "object",
-            properties: {}
-          }
-        }
-      ],
-      prompts: [
-        {
-          name: "strategyAdvice",
-          description: "Get strategy advice against certain elements",
-          arguments: [
-            {
-              name: "enemyElements",
-              description: "Array of enemy elements as a string",
-              required: true
-            }
-          ]
-        }
-      ],
-      resources: [
-        {
-          uri: "guide://elemental-counters",
-          name: "Element Guide",
-          description: "Guide indicating which elements counter each other"
-        }
-      ]
-    });
+  app.all("/api/mcp", async (req, res) => {
+    try {
+      const handler = await import("./api/mcp.js");
+      handler.default(req, res);
+    } catch(e) {
+      console.error(e);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   });
 
   app.get("/api/agent", (req, res) => {
