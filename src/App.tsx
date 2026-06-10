@@ -7,6 +7,8 @@ import { AppProvider, useApp } from './store/AppContext';
 import TitleScreen from './screens/TitleScreen';
 import ArenaScreen from './screens/ArenaScreen';
 import LeaderboardScreen from './screens/LeaderboardScreen';
+import { Providers } from './providers';
+import { GMButton } from './components/GMButton';
 
 function ScreenManager() {
   const { currentScreen } = useApp();
@@ -16,14 +18,20 @@ function ScreenManager() {
       {currentScreen === 'title' && <TitleScreen />}
       {currentScreen === 'arena' && <ArenaScreen />}
       {currentScreen === 'leaderboard' && <LeaderboardScreen />}
+      
+      <div className="absolute top-4 right-4 z-50">
+        <GMButton />
+      </div>
     </div>
   );
 }
 
 export default function App() {
   return (
-    <AppProvider>
-      <ScreenManager />
-    </AppProvider>
+    <Providers>
+      <AppProvider>
+        <ScreenManager />
+      </AppProvider>
+    </Providers>
   );
 }
