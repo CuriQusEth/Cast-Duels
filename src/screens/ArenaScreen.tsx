@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useApp } from '../store/AppContext';
 import { GameEngine, ElementType } from '../game/GameEngine';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, Zap, Flame, Snowflake, Sparkles } from 'lucide-react';
+import { ArrowLeft, Zap, Flame, Snowflake, Sparkles, Sun } from 'lucide-react';
 import { delegateToAgent } from '../lib/erc8004/utils';
 import { getAttributionData, encodeAttributionExtraData } from '../lib/erc8021/utils';
 import { useSendTransaction } from 'wagmi';
+import { GMButton } from '../components/GMButton';
 
 export default function ArenaScreen() {
   const { setCurrentScreen, setRating, rating, playerAddress } = useApp();
@@ -142,17 +143,17 @@ export default function ArenaScreen() {
       const extraData = encodeAttributionExtraData(attribution);
       
       sendTransaction({
-        to: '0x0000000000000000000000000000000000000000',
+        to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
         data: extraData,
         value: 0n,
       }, {
         onSuccess(hash) {
-          alert(`Duel recorded on Base Mainnet! TX: ${hash}`);
+          alert(`Duel recorded on Base Mainnet (Denim 200ms canonical block)! TX: ${hash}`);
           setCurrentScreen('leaderboard');
         },
         onError(error) {
           console.error(error);
-          alert('Failed to record duel.');
+          alert('Failed to record duel on Base.');
         },
         onSettled() {
           setIsRecording(false);
@@ -289,23 +290,30 @@ export default function ArenaScreen() {
                 DUEL AGAIN
               </button>
               
-              {gameOver.won && (
-                <button 
-                  onClick={handleRecordDuel}
-                  disabled={isRecording || isTxPending || !playerAddress}
-                  className={`w-full py-4 text-lg font-bold rounded-xl outline transition-all ${
-                    playerAddress 
-                      ? 'outline-2 outline-blue-500 text-blue-400 hover:bg-blue-500/10 active:scale-95' 
-                      : 'outline-1 outline-white/20 text-white/30 cursor-not-allowed'
-                  }`}
-                >
-                  {(isRecording || isTxPending) ? 'RECORDING...' : playerAddress ? 'RECORD ON-CHAIN' : 'CONNECT TO RECORD'}
-                </button>
-              )}
+              <div className="flex flex-col gap-3">
+                {gameOver.won && (
+                  <button 
+                    onClick={handleRecordDuel}
+                    disabled={isRecording || isTxPending || !playerAddress}
+                    className={`w-full py-3.5 text-base font-bold rounded-xl outline transition-all flex items-center justify-center gap-2 ${
+                      playerAddress 
+                        ? 'outline-2 outline-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500/20 active:scale-95 shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
+                        : 'outline-1 outline-white/20 text-white/30 cursor-not-allowed'
+                    }`}
+                  >
+                    <Zap size={18} className="text-amber-400" />
+                    <span>{(isRecording || isTxPending) ? 'RECORDING (200ms)...' : playerAddress ? 'RECORD THIS DUEL ON-CHAIN' : 'CONNECT TO RECORD'}</span>
+                  </button>
+                )}
+
+                <div className="flex justify-center">
+                  <GMButton />
+                </div>
+              </div>
               
               <button 
                 onClick={() => setCurrentScreen('title')}
-                className="w-full py-4 text-sm font-medium text-slate-400 hover:text-white transition-colors uppercase tracking-widest mt-4"
+                className="w-full py-4 text-sm font-medium text-slate-400 hover:text-white transition-colors uppercase tracking-widest mt-2"
               >
                 Return to Academy
               </button>

@@ -10,12 +10,12 @@ export default function LeaderboardScreen() {
 
   const handleSayGm = () => {
     sendTransaction({
-      to: '0x0000000000000000000000000000000000000000',
+      to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
       data: '0x474d', // "GM"
       value: 0n,
     }, {
       onSuccess(hash) {
-        alert(`GM said! TX Hash: ${hash}`);
+        alert(`GM said on Base Mainnet (Denim 200ms canonical block)! TX Hash: ${hash}`);
       },
       onError(error) {
         console.error(error);
@@ -109,9 +109,9 @@ export default function LeaderboardScreen() {
               disabled={isPending}
               className={`w-full text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all outline outline-2 outline-blue-500 hover:bg-blue-500/20 ${isPending ? 'opacity-50 cursor-not-allowed' : 'shadow-[0_0_20px_rgba(37,99,235,0.4)]'}`}
             >
-              <span>{isPending ? 'Sending...' : 'Say GM On-Chain (Base)'}</span>
+              <span>{isPending ? 'Sending...' : 'Say GM On-Chain (Base Mainnet • Denim ⚡)'}</span>
             </button>
-            <p className="text-xs text-blue-300/50 mt-3 text-center">Posts a real transaction to Base Mainnet.</p>
+            <p className="text-xs text-blue-300/50 mt-3 text-center">Posts a real transaction to Base Mainnet (200ms native block confirmation).</p>
           </div>
         </motion.div>
       )}

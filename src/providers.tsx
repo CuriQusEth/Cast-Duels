@@ -1,16 +1,9 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WagmiProvider, createConfig, http } from 'wagmi';
-import { base } from 'wagmi/chains';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { WagmiProvider } from 'wagmi';
+import { config, queryClient } from './lib/wagmi';
 
-const queryClient = new QueryClient();
-
-export const config = createConfig({
-  chains: [base],
-  transports: {
-    [base.id]: http(),
-  },
-});
+export { config, queryClient };
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

@@ -90,11 +90,13 @@ export default function TitleScreen() {
             className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-blue-600/20 hover:bg-blue-600/30 rounded-xl transition-all font-medium border border-blue-500/30 text-blue-300 backdrop-blur-md active:scale-95 mt-4"
           >
             <Users size={20} />
-            CONNECT ACCOUNT
+            CONNECT ACCOUNT (BASE DENIM)
           </button>
         ) : (
-          <div className="w-full text-center p-3 mt-4 text-sm text-green-400 bg-green-500/10 border border-green-500/20 rounded-xl">
-            Connected: {address?.slice(0,6)}...{address?.slice(-4)}
+          <div className="w-full text-center p-3 mt-4 text-sm text-green-400 bg-green-500/10 border border-green-500/20 rounded-xl flex items-center justify-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Connected: {address?.slice(0,6)}...{address?.slice(-4)}</span>
+            <span className="text-xs text-emerald-300/80 font-mono">⚡ 200ms</span>
           </div>
         )}
       </motion.div>

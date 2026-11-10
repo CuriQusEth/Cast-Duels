@@ -10,7 +10,7 @@ export default function handler(req, res) {
 
   res.status(200).json({
     "name": "Cast Spell Wizard Duels Agent",
-    "description": "High-performance AI Agent specialized in warp racing mechanics, real-time automation, multi-track management, competitive optimization and ecosystem coordination on Base.",
+    "description": "High-performance AI Battle Mage Agent on Base Mainnet (Denim upgrade). Optimized for 200ms canonical blocks, real-time spell crafting, competitive duel management and on-chain ERC-8021/ERC-8004 attributions.",
     "version": "1.0.0",
     "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
     "image": "",
